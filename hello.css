@@ -1,1 +1,762 @@
+body .tmblr-iframe--follow-teaser, body .tmblr-iframe--gdpr-banner, .tmblr-iframe--unified-controls, .app-cta-button { display:none !important; } .app-cta-button { display: none; } body { background: #0c0b0e; font-family: 'Work Sans', sans-serif; } /* Navigation bar styling */ .navbar { display: flex; align-items: center; padding: 20px; position: fixed; top: 0; left: 0; right: 0; background-color:none; /* Transparent background */ backdrop-filter: blur(0px); /* Optional: adds a blur effect to the background */ z-index: 1000; /* Ensure it stays on top */ } /* Left link styling */ .nav-left { flex: 1; /* Take up available space */ text-align: left; /* Align text to the left */ } /* Logo styling */ .logo { flex: 0 0 auto; /* Do not grow or shrink */ display: flex; justify-content: center; /* Center the logo */ align-items: center; /* Center vertically */ } .logo img { height: 20px; /* Adjust logo height to make it smaller */ } /* Right link styling */ .nav-right { flex: 1; /* Take up available space */ text-align: right; /* Align text to the right */ } /* Navigation links styling */ .nav-links a { text-decoration: none; color: #e0eaf0; /* Link color */ font-weight: bold; transition: color 0.3s; /* Smooth color transition */ margin: 0 10px; /* Space between links */ font-family: "Work Sans", sans-serif; } .nav-links a:hover { color: #7d9eb2; /* Change color on hover */ } /* Button styling for Contact link */ .contact-button { background-color: #2096df; /* Button background color */ color: #cde5f4; /* Button text color */ padding: 10px 20px; /* Padding for the button */ border: none; /* Remove border */ border-radius: 25px; /* Rounded corners */ font-weight: bold; cursor: pointer; /* Pointer cursor on hover */ transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */ } .contact-button:hover { background-color: #cde5f4; /* Darker green on hover */ transform: scale(1.1); /* Scale up the button */ /* Removed box-shadow effect */ } .nv { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; position: relative; text-align: center; padding: 20px; box-sizing: border-box; background: linear-gradient(270deg, #2480eb, #0e1218); background-size: 400% 400%; /* For animation effect */ animation: gradient-animation 15s ease infinite; /* Animation */ } .nv
+html
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            z-index: 1; /* Above the gradient */
+        }
 
+        .nv p {
+            font-size: 1em;
+            margin-top: 20px;
+            max-width: 800px; /* Limit the width of the text for better readability */
+            z-index: 1; /* Above the gradient */
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nv h1 {
+                font-size: .5em; /* Smaller font size for mobile */
+            }
+
+            .nv p {
+                font-size: .5em; /* Smaller font size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nv h1 {
+                font-size: .5em; /* Smaller font size for mobile */
+            }
+
+            .nv p {
+                font-size: .5em; /* Smaller font size for mobile */
+            }
+        }
+        
+
+
+
+
+        
+        
+                /* Background GIF styling */
+        .bgm {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Send the GIF behind other content */
+            background: none;
+        }
+
+        .bgm img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire section */
+        }
+
+        /* Overlay styling */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send the overlay behind the text */
+            background-color: rgba(255, 238, 220, 0.7);
+            }
+
+        /* Main background section styling */
+        .mbg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            text-align: center; /* Center text */
+            padding: 20px; /* Padding for smaller screens */
+            z-index: 1; /* Bring the text in front of the overlay */
+        }
+
+        /* Headline styling */
+        .mbg h1 {
+            font-size: 7rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #2480eb;
+            font-family: "League Spartan", serif;
+        }
+
+        /* Sub-copy styling */
+        .mbg p {
+            font-size: 1.25rem; /* Adjust font size for the sub-copy */
+            max-width: 800px; /* Limit width for readability */
+            color: #2480eb;
+            font-family: "Work Sans", sans-serif;
+        }
+        
+            a {
+            font-family: "Work Sans", sans-serif;
+        }
+            h2 {
+            font-size: 7rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #2480eb;
+            font-family: "League Spartan", serif;
+        }
+        
+    /* Button container styling */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between buttons */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+
+    .button-pill2, .button-pill3 {
+        background-color: transparent;
+        color: #2480eb;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        border: 1px solid #2480eb;
+        transition: all 0.3s ease;
+        display: inline-block; /* Ensure proper sizing */
+        margin: 10px 0; /* Vertical margin for wrapped buttons */
+        font-family: "Work Sans", sans-serif;
+    }
+    
+        .button-pill3 {
+        background-color: transparent;
+        color: #ffeedc;
+        background: #4ab835;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        border: none;
+        transition: all 0.3s ease;
+        display: inline-block; /* Ensure proper sizing */
+        margin: 10px 0; /* Vertical margin for wrapped buttons */
+    }
+
+    .button-pill2:hover, .button-pill3:hover {
+        background-color: #020606;
+        color: #FFEEDC;
+    }
+
+    .button-pill2::after, .button-pill3::after {
+        content: '↳';
+        margin-left: 0.5rem;
+        font-size: 1.2rem;
+    }
+             /* Responsive styling */
+      @media (max-width: 768px) {
+        .mbg h1 {
+            font-size: 2.5rem;
+        }
+
+        .mbg p {
+            font-size: 1rem;
+        }
+
+        .button-container {
+            flex-direction: column; /* Stack buttons vertically on small screens */
+            align-items: center;
+        }
+
+        .button-pill2, .button-pill3 {
+            width: 80%; /* Make buttons wider on small screens */
+            max-width: 250px; /* Limit maximum width */
+        }
+    }
+        
+        p,body {  font-size: 1rem; color: #ffeedc; font-family: "Work Sans", sans-serif; z-index: 1;text-align: center; /* Center text */}
+        
+        
+        
+        
+        
+        
+        
+        
+         .footer {
+            background: linear-gradient(45deg, #2480eb, #020606);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .social-links {
+            text-align: right;
+        }
+
+        .social-links a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+
+        .footer-center {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-center h2 {
+            font-size: 7rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #FFEEDC;
+        }
+        
+        p, .social-links a {  font-size: 1rem; color: #FFEEDC;}
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .button-pill {
+            background-color: transparent;
+            color: #FFEEDC;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #FFEEDC;
+            transition: all 0.3s ease;
+        }
+
+        .button-pill:hover {
+            background-color: #FFEEDC;
+            color: #2480EB;
+        }
+
+        .button-pill::after {
+            content: '↳';
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .logo img {
+            height: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer {
+                padding: 1.5rem;
+            }
+
+            .footer-top,
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-links,
+            .contact-info {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .social-links a {
+                margin: 0 0.5rem;
+            }
+
+            .footer-center h2 {
+                font-size: 2.5rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-pill {
+                margin-bottom: 1rem;
+                width: 80%;
+                justify-content: center;
+            }
+
+            .logo,
+            .copyright {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        
+        
+        
+        
+        
+        /* Reset default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Full-width image section */
+        .image-section {
+            width: 100%;
+            position: relative;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Subtext section */
+        .subtext-section2 {
+            background-color: #ffeedc;
+            padding: 2rem;
+            text-align: center;
+            color: #302924;
+        }
+        .subtext-section {
+            background-color: #ff99db;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .subtext-section h2, .subtext-section2 h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #302924;
+            font-family: "League Spartan", serif;
+        }
+
+        .subtext-section p, .subtext-section2 p {
+            font-size: 1rem;
+            color: #302924;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .subtext-section {
+            }
+
+            .subtext-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .subtext-section p {
+                font-size: 0.9rem;
+            }
+        }
+
+    
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the items */
+            background-color: #f4f4f4;
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
+        }
+
+        .media-item {
+            width: 100%;
+            max-width: 1080px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1 / 1;
+            margin: 0; /* Remove margin */
+        }
+
+        .media-item video,
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .media-item {
+                width: 50%; /* Make it exactly 50% */
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .media-item {
+                width: 33.333%; /* Make it exactly one-third */
+            }
+        }          
+        
+        
+        
+        
+               .responsive-section {
+            display: flex;
+            flex-direction: row; /* Two columns */
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .lft {
+            flex: 1; /* Take up half of the section */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            text-align: center;
+            color: #fff; /* Change text color to white for contrast */
+            background-color: #4ab835; /* Background color */
+            position: relative; /* For positioning the dots */
+            overflow: hidden; /* Hide overflow from dots */
+            background-image: radial-gradient(circle, #ffeedc 10%, transparent 10%); /* Dotted background */
+            background-size: 20px 20px; /* Size of the dots */
+            animation: pan 30s linear infinite; /* Slower panning animation */
+        }
+
+        @keyframes pan {
+            0% {
+                background-position: 0 0; /* Start position */
+            }
+            100% {
+                background-position: 100% 100%; /* End position */
+            }
+        }
+
+        .huge-text {
+            font-size: 7rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #FFEEDC;
+            font-family: "League Spartan", serif;
+        }
+        .huge-text2 {
+            font-size: 5rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #FFEEDC;
+        }
+        .rght {
+            flex: 1; /* Take up half of the section */
+            background-color: none; /* Solid background for the right column */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Add some padding */
+            z-index: 1;
+        }
+
+        .sub-text {
+            font-size: 1rem; /* Smaller text size */
+            margin-bottom: 20px; /* Space below the subtext */
+            color: #FFEEDC; /* Text color */
+        }
+
+        .button-container {
+            display: flex; /* Use flexbox to arrange buttons side by side */
+            justify-content: center; /* Center the buttons horizontally */
+            gap: 10px; /* Space between buttons */
+        }
+
+        .pill-button {
+            background-color: transparent; /* Transparent background */
+            border: 1px solid #FFEEDC; /* Solid border color */
+            border-radius: 50px; /* Pill shape */
+            color: #FFEEDC; /* Text color */
+            padding: 8px 16px; /* Smaller padding for smaller buttons */
+            font-size: .9rem; /* Smaller font size for buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        .pill-button:hover {
+            background-color: rgba(255, 238, 220, 0.2); /* Light background on hover */
+        }
+
+        @media (max-width: 768px) {
+            .responsive-section {
+                flex-direction: column; /* Stack columns vertically on mobile */
+            }
+
+            .huge-text {
+                font-size: 5rem; /* Smaller text size for mobile */
+            }
+            
+                        .huge-text2{
+                font-size: 2rem; /* Smaller text size for mobile */
+            }
+
+            .sub-text {
+                font-size: 1.5rem; /* Smaller subtext for mobile */
+            }
+
+            .pill-button {
+                font-size: 1rem; /* Smaller button text for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .huge-text {
+                font-size: 3rem; /* Even smaller for very small screens */
+            }
+                        .huge-text2 {
+                font-size: 1rem; /* Even smaller for very small screens */
+            }
+
+            .sub-text {
+                font-size: .9rem; /* Smaller subtext for very small screens */
+            }
+
+            .pill-button {
+                font-size: .6rem; /* Smaller button text for very small screens */
+            }
+        }
+        
+        
+        
+        
+        
+    .selection {
+      position: relative;
+      display: inline-block;
+      padding: 10px 10px;
+      font-size: 48px;
+      font-weight: 600;
+      color: #0a1a5b;
+      z-index: 1;
+      height: 5rem;
+    }
+
+    /* Blue highlight overlay */
+    .selection::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 102, 255, 0.25);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    /* Vertical lines */
+    .vline {
+      position: absolute;
+      width: 3px;
+      background-color: #0047ff;
+      top: 0;
+      bottom: 0;
+    }
+
+    .vline.left {
+      left: -5px;
+    }
+
+    .vline.right {
+      right: -5px;
+    }
+
+    /* Handles (blue dots) */
+    .handle {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: #0047ff;
+      border-radius: 50%;
+    }
+
+    .handle.left {
+      left: -10px;
+      top: 0;
+    }
+
+    .handle.right {
+      right: -10px;
+      bottom: 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+            /* Full-width experience section styling */
+        .experience {
+                background-color: #cde5f4; /* Background color for the experience section */
+            padding: 60px 20px; /* Increased padding for the experience section */
+            text-align: center; /* Center the content */
+            position: relative; /* Position relative for pseudo-elements */
+        }
+            .experience h1 {
+            font-size: 3rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #0c0b0e;
+        }
+            .experience h2 {
+            font-size: 2rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #0c0b0e;
+        }
+
+
+    
+    
+    
+    .headline {
+            font-size: 5rem; /* Adjust font size for the headline */
+            margin-bottom: 10px; /* Space below the headline */
+            font-weight: 700;
+            color: #0c0b0e;
+            font-family: "League Spartan", serif;
+            text-align: center;
+        }
+        
+        
+.about-section {
+  background: #fff;
+  color: #0c0b0e;
+  padding: 8rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 80vh;
+}
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;       /* centers the block horizontally */
+  text-align: center;   /* centers all text inside */
+}
+
+.about-text h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 2.5rem;
+  line-height: 1.2;
+}
+
+.about-text .highlight {
+  background: #dce7ef; /* light bluish highlight */
+  padding: 0 0.3em;
+  display: inline-block;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 5rem 8%;
+    min-height: auto;
+  }
+
+  .about-text h1 {
+    margin-bottom: 1.8rem;
+  }
+
+}
+
+
+.about-text p{font-size:clamp(1rem,1.8vw,1.4rem);font-weight:500;line-height:1.4;color:#0c0b0e;}
+
+
+.scrolling-section {
+  background-color: #0c0b0e;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scrollText 25s linear infinite;
+}
+
+.scroll-text {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: "League Spartan", serif;
+  color:#cde5f4;
+}
+
+.scroll-text span {
+  margin: 0 2rem;
+  opacity: 0.7;
+}
+
+/* Keyframes for seamless scrolling */
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .scroll-text {
+    font-size: 1.4rem;
+  }
+  .scroll-track {
+    animation-duration: 20s;
+  }
+}
