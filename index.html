@@ -9,15 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-  <script>
-  const menu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
 
-  menu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menu.classList.toggle('open');
-  });
-</script>
 <body>
   <nav class="navbar">
     <div class="nav-left">
@@ -149,5 +141,15 @@
             </div>
         </div>
     </footer>
+
+    <script>
+  const menu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  menu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menu.classList.toggle('open');
+  });
+</script>
 </body>
 </html>
