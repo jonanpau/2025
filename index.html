@@ -44,39 +44,25 @@
     </div>
 
 
-    <div class="experience">
 
-        <div class="about-text">
-            <div class="left-column">
-                <div style="
-  position: relative;
-  width: 100%;
-  padding-top: 75%; /* keep aspect ratio */
-  overflow: hidden;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-">
-                    <iframe playsinline="1"
-                        src="https://player.vimeo.com/video/1132386299?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-                        frameborder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 110%;
-      height: 110%;
-      border: none;
-      outline: none;
-      background: transparent;
-      display: block;
-    " title="About gif">
-                    </iframe>
-                </div>
-            </div>
-            <div class="right-column">
-                <h1 class="headline">
+
+
+<section id="abtsection">
+  <div class="video-container">
+    <iframe 
+  src="https://player.vimeo.com/video/1132386299?background=1&autoplay=1&muted=1&loop=1" 
+  width="756" 
+  height="950" 
+  frameborder="0" 
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin" 
+  title="About gif">
+</iframe>
+
+  </div>
+
+  <div class="text-container">
+    <h1 class="headline">
                     I’m a <span class="highlight">
                         <div class="selection">
                             <div class="vline left"></div>
@@ -86,31 +72,97 @@
                             <h1 class="headline">Multimedia Artist</h1>
                         </div>
                     </span>
-                    with a passion for creating visuals that connect.
+                    <br><br><br><br>
+                    with a Passion for creating Visuals that Connect.
                 </h1>
-                <section class="about-text">
+
                     <p>Whether it’s design, editing, or crafting static and digital pieces, I love turning ideas into
                         visuals that stand out and make an impact.</p>
-                </section>
-            </div>
-        </div>
 
-        <section class="scrolling-section">
-            <div class="scroll-track">
-                <div class="scroll-text">
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                </div>
-                <div class="scroll-text">
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                    Here’s What I Can Help You With <span>⟡</span>
-                </div>
-            </div>
-        </section>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+<div class="ai-wavy-divider-ayjy3vhg2odvkwjl3waigenblockd2f1176imgerg  ">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 Q50,60 
+         100,40 
+         T200,40 
+         T300.0,40 
+         T400,40 
+         T500.0,40 
+         T600,40 
+         T700.0,40 
+         T800,40 
+         T900.0,40 
+         T1000,40 
+         T1100.0,40 
+         T1200,40 
+         L1200,80 
+         L0,80 Z" fill="#0c0b0e"></path>
+  </svg>
+</div>
+
+
+
+
+
+
+
+<!-- DESKTOP VERSION -->
+<div class="video-container2 desktop-video">
+  <iframe 
+    src="https://player.vimeo.com/video/1132855426?autoplay=1&muted=1&loop=1&background=1" 
+    frameborder="0" 
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+    title="Desktop graphic design">
+  </iframe>
+</div>
+
+<!-- MOBILE VERSION -->
+<div class="video-container2 mobile-video">
+  <iframe 
+    src="https://player.vimeo.com/video/1132857075?autoplay=1&muted=1&loop=1&background=1" 
+    frameborder="0" 
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+    title="Mobile">
+  </iframe>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+
+
+
+
+
+
+
         <footer class="footer" id="contact">
             <div class="footer-top">
                 <div class="contact-info">
@@ -151,6 +203,22 @@
                 menu.classList.toggle('open');
             });
         </script>
+
+        <script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
 </body>
 
 </html>
