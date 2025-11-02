@@ -713,7 +713,7 @@ body {
     font-weight: 600;
     color: #0a1a5b;
     z-index: 1;
-    height: 5rem;
+    height: auto;
 }
 
 /* Blue highlight overlay */
@@ -802,10 +802,8 @@ body {
 
 
 .headline {
-    font-size: 6rem;
-    /* Adjust font size for the headline */
+    font-size: 3rem;
     margin-bottom: 10px;
-    /* Space below the headline */
     font-weight: 700;
     color: #0c0b0e;
     font-family: 'foret', serif;
@@ -824,25 +822,31 @@ body {
 }
 
 .about-text {
+    position: relative;
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    text-align: center;
 }
 
-.left-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 75%;
+    z-index: -1;
 }
 
-.right-column {
-    flex: 1;
-    text-align: left;
+.about-text h1,
+.about-text p {
+    position: relative;
+    z-index: 1;
+    color: #0c0b0e;
 }
 
 .about-text h1 {
@@ -889,57 +893,7 @@ body {
 }
 
 
-.scrolling-section {
-    background-color: #0c0b0e;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 1.5rem 0;
-    position: relative;
-}
 
-.scroll-track {
-    display: flex;
-    width: max-content;
-    animation: scrollText 25s linear infinite;
-}
-
-.scroll-text {
-    display: flex;
-    align-items: center;
-    font-size: 4rem;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-family: "League Spartan", serif;
-    color: #cde5f4;
-}
-
-.scroll-text span {
-    margin: 0 2rem;
-    opacity: 0.7;
-}
-
-/* Keyframes for seamless scrolling */
-@keyframes scrollText {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .scroll-text {
-        font-size: 1.4rem;
-    }
-
-    .scroll-track {
-        animation-duration: 20s;
-    }
-}
 
 /* NAVBAR BASE */
 .navbar {
@@ -1053,3 +1007,122 @@ body {
 .bar {
     transition: all 0.3s ease;
 }
+
+/* About Section */
+#abtsection {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #dce7ef;
+}
+
+.video-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 756px;
+    height: 950px;
+    border: none;
+}
+
+.text-container {
+    flex: 1;
+    text-align: left;
+    color: #0c0b0e;
+    max-width:fit-content;
+}
+
+.text-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'foret', serif;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #0c0b0e;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #abtsection {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .video-container iframe {
+        height: auto;
+        aspect-ratio: 756 / 950;
+    }
+
+    .text-container {
+        text-align: center;
+        max-width:fit-content;
+    }
+
+    .text-container h2 {
+        font-size: 2rem;
+    }
+
+    .text-container p {
+        font-size: .7rem;
+    }
+    .headline {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+.ai-wavy-divider-ayjy3vhg2odvkwjl3waigenblockd2f1176imgerg {
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    background-color: #dce7ef;
+}
+
+
+
+
+
+
+
+.video-container2 {
+  position: relative;
+  padding: 56.25% 0 0 0; /* 16:9 ratio */
+  overflow: hidden;
+}
+
+/* Hide mobile version by default */
+.mobile-video {
+  display: none;
+}
+
+/* When screen width is below 768px (mobile), show mobile video */
+@media (max-width: 768px) {
+  .desktop-video {
+    display: none;
+  }
+  .mobile-video {
+    display: block;
+  }
+}
+
+
