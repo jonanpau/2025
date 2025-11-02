@@ -103,57 +103,70 @@
    
 
 
-<div class="ai-wavy-divider-ayjy3vhg2odvkwjl3waigenblockd2f1176imgerg  ">
-  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,40 Q50,60 
-         100,40 
-         T200,40 
-         T300.0,40 
-         T400,40 
-         T500.0,40 
-         T600,40 
-         T700.0,40 
-         T800,40 
-         T900.0,40 
-         T1000,40 
-         T1100.0,40 
-         T1200,40 
-         L1200,80 
-         L0,80 Z" fill="#0c0b0e"></path>
-  </svg>
-</div>
 
 
 
 
 
 
+<section class="horizontal-scroll">
+  <div class="scroll-container">
+    <div class="scroll-item"><img src="https://i.imgur.com/zZQUEo4.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/czKh8yx.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/EpqlG7f.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/lqpoAAr.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/hfZh5bw.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/zZQUEo4.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/wPoNbyy.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/RbS3u5X.jpeg" alt=""></div>
 
-<!-- DESKTOP VERSION -->
-<div class="video-container2 desktop-video">
-  <iframe 
-    src="https://player.vimeo.com/video/1132855426?autoplay=1&muted=1&loop=1&background=1" 
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-    title="Desktop graphic design">
-  </iframe>
-</div>
+    <div class="scroll-item"><img src="https://i.imgur.com/TeediHe.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/SB7qeJN.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/UfS8Eby.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/IadDDBJ.jpeg" alt=""></div>
+    <div class="scroll-item"><img src="https://i.imgur.com/bmj599M.jpeg" alt=""></div>
+        <div class="scroll-item"><img src="https://i.imgur.com/KOqFMMl.jpeg" alt=""></div>
+        <div class="scroll-item"><img src="https://i.imgur.com/WcsmSLc.jpeg" alt=""></div>
+        <div class="scroll-item"><img src="https://i.imgur.com/j7gMSE8.jpeg" alt=""></div>
+        <div class="scroll-item"><img src="https://i.imgur.com/MSwqRyG.jpeg" alt=""></div>
 
-<!-- MOBILE VERSION -->
-<div class="video-container2 mobile-video">
-  <iframe 
-    src="https://player.vimeo.com/video/1132857075?autoplay=1&muted=1&loop=1&background=1" 
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-    title="Mobile">
-  </iframe>
-</div>
+<div class="scroll-item"><img src="https://i.imgur.com/u8QH3Mj.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/Cap7tJM.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/wsXHDE6.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/iqU4jZy.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/V8qlv9o.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/SU9G9UI.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/hOy2gmt.jpeg" alt=""></div>
+<div class="scroll-item"><img src="https://i.imgur.com/WAZQgmY.jpeg" alt=""></div>
+  </div>
+</section>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
+
+<script>
+  const slider = document.querySelector('.horizontal-scroll');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', e => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => isDown = false);
+  slider.addEventListener('mouseup', () => isDown = false);
+
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll speed
+    slider.scrollLeft = scrollLeft - walk;
+  });
+</script>
+
 
 
 
@@ -186,7 +199,6 @@
 </div>
 
 </div>
-
 
 
 
