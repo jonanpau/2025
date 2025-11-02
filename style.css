@@ -1,3 +1,17 @@
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.horizontal-scroll, 
+.horizontal-scroll * {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
 @font-face {
     font-family: 'foret';
     src: url('Fonts/foret.ttf') format('truetype');
@@ -1274,3 +1288,73 @@ body {
       height: 18.0px;
     }
   }
+
+
+
+
+
+/* Horizontal scroll section */
+.horizontal-scroll {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+/* Change cursor on drag */
+.horizontal-scroll:active {
+  cursor: grabbing;
+}
+
+/* Scrollbar styling */
+.horizontal-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: #1a191c;
+  border-radius: 10px;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Container for images */
+.scroll-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* Image cards */
+.scroll-item {
+  flex: 0 0 auto;
+  width: 350px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(calc(-2deg + 4deg * random()));
+  transition: transform 0.3s ease;
+}
+
+/* Size variations */
+.scroll-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Hover animation */
+.scroll-item:hover img {
+  transform: scale(1.05);
+}
