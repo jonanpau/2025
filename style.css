@@ -64,7 +64,7 @@ body .tmblr-iframe--gdpr-banner,
 }
 
 body {
-    background: #0c0b0e;
+    background: #DCE7EF;
     font-family: 'Work Sans', sans-serif;
 }
 
@@ -957,7 +957,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    background: rgba(12, 11, 14, 0.8);
+    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -976,10 +976,11 @@ body {
 }
 
 .nav-links a {
-    color: #e0eaf0;
-    font-weight: 600;
+    color: #0c0b0e;
+    font-weight: 100;
     text-decoration: none;
     transition: color 0.3s;
+    border-bottom: 1px solid;
 }
 
 .nav-links a:hover {
@@ -1009,6 +1010,7 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    z-index: 9;
 }
 
 .bar {
@@ -1026,15 +1028,16 @@ body {
 
     .nav-links {
         position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(12, 11, 14, 0.95);
+        top: 0px;
+        right: 0px;
+        background: rgba(224, 234, 240, 0.80);
         width: 100%;
         flex-direction: column;
         align-items: center;
         gap: 15px;
         padding: 20px 0;
         display: none;
+        height: 100vh;
     }
 
     .nav-links.active {
