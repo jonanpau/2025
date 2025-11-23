@@ -26,7 +26,7 @@
       <div class="nav-left">
         <div class="nav-links">
           <a href="jonanpaule.work">Home</a>
-          <a href="jonanpaule.work#works" class="works-button scroll-link">Works</a>
+          <a href=".folder-wrapper" class="scroll-link">Works</a>
           <a href="jonanpaule.work#services" class="services-button scroll-link">Services</a>
         </div>
       </div>
@@ -420,7 +420,36 @@ gsap.from("#abtsection", {
   ease: "power2.out"
 });
 </script>
+ <script>
+    gsap.registerPlugin(ScrollToPlugin);
 
+    document.querySelectorAll(".scroll-link").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const selector = link.getAttribute("href");
+        const target = document.querySelector(selector);
+
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: {
+            y: target,
+            offsetY: 50
+          },
+          ease: "power3.out",
+          onComplete: () => {
+            gsap.from(target.querySelectorAll(".stagger-item"), {
+              opacity: 0,
+              y: 40,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power3.out"
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
