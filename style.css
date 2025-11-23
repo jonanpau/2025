@@ -261,7 +261,7 @@ h2 {
     margin-bottom: 10px;
     /* Space below the headline */
     font-weight: 700;
-    color: #2480eb;
+    color: #dce7ef;
     font-family: "Playfair Display", serif;
 }
 
@@ -418,14 +418,14 @@ body {
     margin-bottom: 10px;
     /* Space below the headline */
     font-weight: 700;
-    color: #FFEEDC;
+    color: #dce7ef;
     font-family: "Playfair Display", serif;
 }
 
 p,
 .social-links a {
     font-size: 1rem;
-    color: #FFEEDC;
+    color: #dce7ef;
 }
 
 .button-container {
@@ -540,7 +540,7 @@ body {
 
 /* Subtext section */
 .subtext-section2 {
-    background-color: #ffeedc;
+    background-color: #dce7ef;
     padding: 2rem;
     text-align: center;
     color: #302924;
@@ -914,7 +914,8 @@ body {
     color: #dce7ef;
     font-family: "Playfair Display", serif;
     text-align: center;
-    line-height: normal;
+    line-height: 6rem;
+    margin-bottom: 2rem;
 }
 
 .headline2 {
@@ -1048,7 +1049,7 @@ body {
 }
 
 .nav-links a {
-    color: #0c0b0e;
+    color: #dce7ef;
     font-weight: 100;
     text-decoration: none;
     transition: color 0.3s;
