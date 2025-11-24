@@ -456,6 +456,35 @@ gsap.from("#abtsection", {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Get marquee width
+  const marquee = document.querySelector(".marquee");
+  const marqueeWidth = marquee.scrollWidth;
+
+  gsap.to(".marquee", {
+    x: -marqueeWidth,  
+    ease: "linear",
+    repeat: -1,
+    duration: 18, // match your old CSS speed
+    paused: true,
+    scrollTrigger: {
+      trigger: ".marquee-container",
+      start: "top 80%", 
+      onEnter: () => marqueeAnimation.play(),
+      onLeave: () => marqueeAnimation.pause(),
+      onEnterBack: () => marqueeAnimation.play(),
+      onLeaveBack: () => marqueeAnimation.pause(),
+    }
+  });
+
+  const marqueeAnimation = gsap.to(".marquee", {});
+</script>
 </body>
 
 </html>
