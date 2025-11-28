@@ -10,6 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+ <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
@@ -73,22 +77,64 @@
 
 
 <section id="featuredprojects" class="featuredprojects-section">
-<div class="video-background">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/9c82cf6f1c23458cb2c382d2a5b0e53c.mp4" type="video/mp4" />
+<video class="bg-video" autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/0ec8f5f07c3c42f28f760d1578bcc281.mp4" type="video/mp4" />
 </video>
-</div>
 
 
-<div class="content-wrapper">
-<h2></h2>
-<p></p>
-</div>
 </section>
 
 
 
 
+
+
+
+  <section class="fullwidth-carousel">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <picture>
+            <source media="(max-width: 767px)" srcset="https://i.imgur.com/Cg5KzSA.jpeg" />
+            <img src="https://i.imgur.com/x7TUaVi.jpeg" alt="Slide 1" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(max-width: 767px)" srcset="https://i.imgur.com/eZ1OmO8.jpeg" />
+            <img src="https://i.imgur.com/DRcQiSc.jpeg" alt="Slide 2" />
+          </picture>
+        </div>
+      </div>
+
+
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,       // show 1 slide at a time
+      spaceBetween: 0,        // no space between slides
+      loop: true,             // infinite loop
+      autoplay: {
+        delay: 3000,          // 3 seconds per slide
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 
 
 
