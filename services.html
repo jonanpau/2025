@@ -1,0 +1,113 @@
+<!-- Spline Script -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.11.5/build/spline-viewer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+
+<style>
+.section { position: relative;  height: 90vh; overflow: hidden; background: #0c0b0e; border-radius: 50px; margin: auto;}
+.falling-text { font-family: 'Work Sans', sans-serif; position: absolute; top: 0; font-size: 3rem; padding: 20px; background: rgba(104,22,255,0.5); border-radius: 120px; opacity:0; cursor:pointer; color:#f0f1f3; border:1px solid rgba(240,241,243,0.5); backdrop-filter:blur(5px); }
+.background-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:clamp(100px,20vw,200px); font-weight:bold; color:#6816ff; pointer-events:none;}
+
+/* Hover effect */
+.falling-text:hover {
+  transform: scale(1.15) rotate(2deg); /* slight tilt + enlarge */
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+}
+</style>
+
+</style>
+<script>
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('.section');
+  const words = ["Graphic", "Photo Edit", "3D Model", "Motion Graphics", "Landing Page", "Email", "Print", "Social Media"];
+  const numberOfTexts = words.length;
+
+  // Stack tracker: store the bottom Y of each column (approx)
+  const stacks = [];
+
+  const bgText = document.querySelector('.background-text');
+  const maxFall = bgText.offsetTop + bgText.offsetHeight + 20;
+
+  for (let i = 0; i < numberOfTexts; i++) {
+    const word = words[i];
+    const span = document.createElement('div');
+    span.classList.add('falling-text');
+    span.textContent = word;
+    section.appendChild(span);
+
+      // Map each word to a section ID
+  const wordToSection = {
+    "Graphic": "about",
+    "Photo Edit": "services",
+    "3D Model": "contact",
+    "Motion Graphics": "about",
+    "Landing Page": "services",
+    "Email": "contact",
+    "Print": "about",
+    "Social Media": "services"
+  };
+
+    // Random X
+    let x = Math.random() * (section.offsetWidth - 150);
+    span.style.left = x + "px";
+
+    // Calculate Y to stack: check stacks near this X
+    const nearbyStack = stacks.filter(s => Math.abs(s.x - x) < 100);
+    let yTarget = maxFall;
+    if (nearbyStack.length) {
+      yTarget = Math.min(...nearbyStack.map(s => s.y)) - 60; // stack above
+    }
+
+    stacks.push({ x, y: yTarget });
+
+// Inside your existing click handler
+span.addEventListener("click", () => {
+  const targetId = wordToSection[word];
+  const target = document.getElementById(targetId);
+  if(target) {
+    // Animate the target section (enter animation)
+    gsap.fromTo(target, 
+      { opacity: 0, y: 50 },   // start state
+      { opacity: 1, y: 4, duration: 3, ease: "power2.out" } // end state
+    );
+
+    // Scroll to the section smoothly
+    target.scrollIntoView({ behavior: "smooth", block:"start" });
+  }
+});
+
+
+    // GSAP animation
+    const tl = gsap.timeline({ delay: Math.random() * 1 });
+    tl.to(span, { y: yTarget, opacity:1, rotation:()=>gsap.utils.random(-15,15), duration:0.8, ease:"power3.in" });
+    tl.to(span, { y:"-=10", duration:0.3, ease:"power1.out" });
+    tl.to(span, { y:"+=10", duration:0.5, ease:"bounce.out" });
+  }
+
+});
+
+</script>
+<section class="section">
+  <div class="background-text">Services</div>
+</section>
+
+<section id="about" style="height:100vh; background:#ffdddd; padding-top: 30px;"><br>
+  <h1>About Section</h1>
+</section>
+
+<section id="services" style="height:100vh; background:#ddffdd;">
+  <h1>Services Section</h1>
+</section>
+
+<section id="contact" style="height:100vh; background:#ddddff;">
+  <h1>Contact Section</h1>
+</section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
