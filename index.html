@@ -606,7 +606,7 @@
           <div class="swiper-slide">
             <picture>
               <source media="(max-width: 767px)" srcset="https://i.imgur.com/tVKB3yh.jpeg" />
-              <img src="https://i.imgur.com/5mDRlr3.jpeg" alt="Slide 1" />
+              <img src="https://i.imgur.com/x7TUaVi.jpeg" alt="Slide 1" />
             </picture>
           </div>
           <div class="swiper-slide">
@@ -821,6 +821,80 @@
           <video autoplay muted loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c3096aa365554be8bd7c5898b7404a2d.mp4" type="video/mp4">
           </video>
+
+
+
+                  <!-- LOOP START -->
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/a22f7807fc1b44a38ea44f9ebfa41cd3.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/c2486c7e963b43329a9f475e8a90728c.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/a9f6a5a812764a5fa0187a7c737559b6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- LOOP END -->
+
+        <!-- DUPLICATE FOR SEAMLESS INFINITE SCROLL -->
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/ddb88f6882ba42e1b16a12f8b9efe11f.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/b47ab03b7f364d148fcdbca86b0caa7f.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/d5d935b545134910b50d45cfff433917.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+        <!-- DUPLICATE FOR SEAMLESS INFINITE SCROLL -->
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/abc6747228be497cbcc891285c1c69f5.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/e723791636674e3e84191c3a87446933.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/9e4e33e6a7f74b6cb98ce91362cb83be.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+        <!-- DUPLICATE FOR SEAMLESS INFINITE SCROLL -->
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/4da39176170a41259227096de9196ad5.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="phone">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/c3096aa365554be8bd7c5898b7404a2d.mp4" type="video/mp4">
+          </video>
         </div>
 
 
@@ -838,7 +912,36 @@
     </div>
 
     </div>
+<script>
+gsap.registerPlugin(ScrollTrigger);
 
+const marquee = document.querySelector(".marquee");
+const marqueeWidth = marquee.scrollWidth; // total width of content
+const speed = 100; // pixels per second
+
+// Set initial position
+gsap.set(marquee, { x: 0 });
+
+// Create ScrollTrigger controlled infinite marquee
+const marqueeAnimation = gsap.to(marquee, {
+  x: -marqueeWidth / 2, // move half of total content for seamless loop
+  ease: "linear",
+  repeat: -1,
+  paused: true, // start paused
+  duration: marqueeWidth / speed, // duration based on speed
+});
+
+// ScrollTrigger to play/pause animation
+ScrollTrigger.create({
+  trigger: ".marquee-container",
+  start: "top bottom",
+  end: "bottom top",
+  onEnter: () => marqueeAnimation.play(),
+  onEnterBack: () => marqueeAnimation.play(),
+  onLeave: () => marqueeAnimation.pause(),
+  onLeaveBack: () => marqueeAnimation.pause(),
+});
+</script>
     <br>
     <br>
     <br>
