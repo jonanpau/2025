@@ -1515,7 +1515,7 @@ body {
 
 
 
-
+/* MOTION GRAPHICS */
 .marquee-container {
     width: 100%;
     overflow: hidden;
@@ -1526,7 +1526,7 @@ body {
 .marquee {
     display: flex;
     gap: 40px;
-    animation: scroll-left 18s linear infinite;
+    /* remove CSS animation, we'll control via GSAP */
 }
 
 .phone {
@@ -1547,44 +1547,24 @@ body {
     border-radius: 20px;
 }
 
-/* KEYFRAMES: move full width of content */
-@keyframes scroll-left {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}
-
 /* MOBILE FIXES */
 @media (max-width: 768px) {
     .marquee {
         gap: 20px;
-        animation: scroll-left 10s linear infinite;
-        /* faster */
     }
 
     .phone {
         width: 160px;
         height: 320px;
-        /* smaller phone boxes */
     }
 }
 
 @media (max-width: 480px) {
-    .marquee {
-        animation: scroll-left 8s linear infinite;
-        /* even faster on small screens */
-    }
-
     .phone {
         width: 140px;
         height: 280px;
     }
 }
-
 
 
 
