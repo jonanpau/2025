@@ -13,6 +13,158 @@
 </nav>
 
 <style>
+
+  .footer {
+
+    background: linear-gradient(45deg, #4015B8, #020606);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.social-links {
+    text-align: right;
+}
+
+.social-links a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.footer-center {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-center h2 {
+    font-size: 7rem;
+    /* Adjust font size for the headline */
+    margin-bottom: 10px;
+    /* Space below the headline */
+    font-weight: 700;
+    color: #dce7ef;
+    font-family: "Playfair Display", serif;
+}
+
+p,
+.social-links a {
+    font-size: 1rem;
+    color: #dce7ef;
+    font-family:'Work Sans', sans-serif;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.button-pill {
+    background-color: transparent;
+    color: #FFEEDC;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #FFEEDC;
+    transition: all 0.3s ease;
+    font-family:'Work Sans', sans-serif;
+}
+
+.button-pill:hover {
+    background-color: #FFEEDC;
+    color: #2480EB;
+}
+
+.button-pill::after {
+    content: '↳';
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.logo img {
+    height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-links,
+    .contact-info {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
+    .footer-center h2 {
+        font-size: 2.5rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-pill {
+        margin-bottom: 1rem;
+        width: 80%;
+        justify-content: center;
+    }
+
+    .logo,
+    .copyright {
+        margin-bottom: 1rem;
+    }
+}
+
+
 * { box-sizing: border-box; margin:0; padding:0; }
 body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
 
@@ -60,11 +212,11 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
   top:0;
   font-size:3rem;
   padding:20px;
-  background: rgba(104,22,255,0.5);
+  background: rgba(26,26,31,0.85);
+  backdrop-filter: blur(8px);
   border-radius:120px;
   color:#f0f1f3;
   border:1px solid rgba(240,241,243,0.5);
-  backdrop-filter:blur(5px);
   opacity:0;
   cursor:pointer;
   z-index:1;
@@ -126,6 +278,7 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
   cursor: pointer;
   transition: 0.3s;
   align-self: center;
+  font-family:'Work Sans', sans-serif;
 }
 .card-content button:hover { background: #8c3cff; }
 
@@ -173,16 +326,16 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/400x500" alt="Image 3">
+      <img src="https://i.imgur.com/zZQUEo4.jpeg" alt="Image 3">
       <div class="card-content">
-        <h3>Card Headline 3</h3>
-        <p>Subtext for card 3. Short description goes here.</p>
+        <h3>Graphic Design</h3>
+        <p>No matter the medium, digital or traditional, I’m here to support your vision!</p>
         <button>Learn More</button>
       </div>
     </div>
   </div>
 </div>
-
+<br><BR>
 
 <!-- GSAP Animations -->
 <script>
@@ -239,3 +392,73 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.11.5/build/spline-viewer.js"></script>
+
+<footer class="footer" id="contact">
+      <div class="footer-top">
+        <div class="contact-info">
+          <p>Email: paulejonan@gmail.com</p>
+          <p>Mobile: +63 939 422 1718</p>
+        </div>
+        <div class="social-links">
+          <a href="https://ph.pinterest.com/jonanpaule/" target="_blank">Pinterest</a>
+          <a href="https://www.instagram.com/pauartdump/" target="_blank">Instagram</a>
+          <a href="https://t.me/jonannn" target="_blank">Telegram</a>
+        </div>
+      </div>
+      <div class="footer-center">
+        <h2>Work with me</h2>
+        <div class="button-container">
+          <a href="https://digitalnoodlestudio.etsy.com" class="button-pill">Etsy</a>
+          <a href="https://www.freepik.com/author/noodle" class="button-pill">Freepik</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=paulejonan@gmail.com&su=SUBJECT&body=BODY&bcc=paulejonan@gmail.com"
+            class="button-pill">Email</a>
+        </div>
+      </div><br><br><br>
+      <div class="footer-bottom">
+        <div class="logo">
+          <a href="jonanpaule.work"><img src="https://i.imgur.com/zH8QVG4.png" alt="Logo"></a>
+        </div>
+        <div class="copyright">
+          <p>© 2025 All rights reserved. Designed and developed by Jonan.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menu = document.getElementById('mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+
+      menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('open');
+      });
+    </script>
+
+    <script>
+      var video = document.getElementById("myVideo");
+      var btn = document.getElementById("myBtn");
+
+      function myFunction() {
+        if (video.paused) {
+          video.play();
+          btn.innerHTML = "Pause";
+        } else {
+          video.pause();
+          btn.innerHTML = "Play";
+        }
+      }
+    </script>
+  </main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const contactLink = document.querySelector('a[href="#contact"]');
+
+  contactLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#contact").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+</script>
