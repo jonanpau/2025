@@ -1105,7 +1105,8 @@ body {
         position: absolute;
         top: 0px;
         right: 0px;
-        background: rgba(224, 234, 240, 0.80);
+backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.2);
         width: 100%;
         flex-direction: column;
         align-items: center;
