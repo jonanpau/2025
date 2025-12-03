@@ -229,36 +229,40 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
   backdrop-filter: blur(8px);
 }
 
-/* Card stack */
+/* Card stack container */
 .card-stack {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  width: clamp(300px, 30vw, 400px); /* min 300px, max 400px, scales in between */
+  width: clamp(300px, 80vw, 450px);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* Card */
 .card {
   display: flex;
-  flex-direction: column; /* image on top, content below */
+  flex-direction: column;
   background: rgba(26,26,31,0.85);
   backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 20px;
-  opacity:0;
+  opacity: 0;
   transform: translateY(50px);
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
+/* Image */
 .card img {
   width: 100%;
-  aspect-ratio: 4 / 5; /* portrait ratio */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 15px;
 }
 
+/* Content */
 .card-content {
   display: flex;
   flex-direction: column;
@@ -267,8 +271,15 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
   color: #f0f1f3;
 }
 
-.card-content h3 { font-size: 1.5rem; }
-.card-content p { font-size: 1rem; opacity:0.85; }
+.card-content h3 {
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+}
+
+.card-content p {
+  font-size: clamp(0.95rem, 3vw, 1rem);
+  opacity: 0.9;
+}
+
 .card-content button {
   padding: 12px 24px;
   background: #6816ff;
@@ -279,13 +290,55 @@ body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
   transition: 0.3s;
   align-self: center;
   font-family:'Work Sans', sans-serif;
+  font-size: clamp(1rem, 3.5vw, 1.1rem);
 }
-.card-content button:hover { background: #8c3cff; }
+.card-content button:hover {
+  background: #8c3cff;
+}
 
-@media(max-width:768px){
-  .card-stack { width: 90vw; gap: 30px; }
-  .card-content h3 { font-size: 1.2rem; }
-  .card-content p { font-size: 0.95rem; }
+/* Mobile Improvements */
+@media(max-width: 768px) {
+  .card-stack {
+    width: 100%;
+    gap: 35px;
+    padding: 0 1rem;
+  }
+
+  .card {
+    margin-top: 1.5rem;
+    padding: 18px;
+    width: 100%;
+  }
+
+  .card img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media(max-width: 480px) {
+  .card-stack {
+    width: 100%;
+    gap: 30px;
+    padding: 0 0.8rem;
+  }
+
+  .card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  .card-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+
+  .card-content button {
+    width: 100%;
+    padding: 14px;
+  }
 }
 </style>
 <!-- Full-screen Spline background -->
