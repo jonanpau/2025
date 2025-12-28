@@ -1,535 +1,93 @@
-<!-- Spline & GSAP Scripts -->
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.11.5/build/spline-viewer.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<!-- Navigation -->
-<nav class="nav">
-  <ul class="nav-list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<style>
-
-  .footer {
-
-    background: linear-gradient(45deg, #4015B8, #020606);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
-    color: white;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizontal Scroll Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    50% {
-        background-position: 100% 50%;
+    body {
+      overflow-x: hidden;
+      height: 100vh;
     }
 
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-}
-
-.contact-info {
-    text-align: left;
-}
-
-.social-links {
-    text-align: right;
-}
-
-.social-links a {
-    color: white;
-    margin-left: 1rem;
-    text-decoration: none;
-}
-
-.footer-center {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.footer-center h2 {
-    font-size: 7rem;
-    /* Adjust font size for the headline */
-    margin-bottom: 10px;
-    /* Space below the headline */
-    font-weight: 700;
-    color: #dce7ef;
-    font-family: "Playfair Display", serif;
-}
-
-p,
-.social-links a {
-    font-size: 1rem;
-    color: #dce7ef;
-    font-family:'Work Sans', sans-serif;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.button-pill {
-    background-color: transparent;
-    color: #FFEEDC;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #FFEEDC;
-    transition: all 0.3s ease;
-    font-family:'Work Sans', sans-serif;
-}
-
-.button-pill:hover {
-    background-color: #FFEEDC;
-    color: #2480EB;
-}
-
-.button-pill::after {
-    content: '↳';
-    margin-left: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.logo img {
-    height: 20px;
-}
-
-@media screen and (max-width: 768px) {
-    .footer {
-        padding: 1.5rem;
+    .scroll-container {
+      display: flex;
+      flex-direction: row;
+      width: 400vw; /* 4 sections */
+      height: 100vh;
+      transition: transform 0.5s ease-out;
     }
 
-    .footer-top,
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
+    section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
     }
 
-    .social-links,
-    .contact-info {
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .one { background: #1abc9c; }
+    .two { background: #3498db; }
+    .three { background: #9b59b6; }
+    .four { background: #e67e22; }
+
+    @media (max-width: 768px) {
+      section {
+        font-size: 2rem;
+        padding: 20px;
         text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .social-links a {
-        margin: 0 0.5rem;
-    }
-
-    .footer-center h2 {
-        font-size: 2.5rem;
-    }
-
-    .button-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .button-pill {
-        margin-bottom: 1rem;
-        width: 80%;
-        justify-content: center;
-    }
-
-    .logo,
-    .copyright {
-        margin-bottom: 1rem;
-    }
-}
-
-
-* { box-sizing: border-box; margin:0; padding:0; }
-body { background-color:#0c0b0e; font-family:'Work Sans', sans-serif; }
-
-/* Navigation */
-.nav { width:100%; display:flex; justify-content:center; padding:20px 0;   background: rgba(26,26,31,0.55);
-  backdrop-filter: blur(8px); position:sticky; top:0; z-index:1000; }
-.nav-list { display:flex; gap:20px; list-style:none; flex-wrap:wrap; justify-content:center; }
-.nav-list li a { text-decoration:none;display:inline-block; padding:10px 25px; background:transparent; color:#f0f1f3; border:1px solid #f0f1f3; border-radius:50px; font-weight:500; transition:0.3s; opacity:0; transform:translateY(20px); }
-.nav-list li a:hover { background:#6816ff; color:#fff; border-color:#6816ff; transform:scale(1.1); }
-@media(max-width:600px){ .nav-list{gap:10px} .nav-list li a{padding:8px 15px;font-size:0.9rem} }
-
-/* Fixed background section with falling text */
-.fixed-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.bg- {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* behind everything */
-}
-
-.background-text {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:clamp(100px,20vw,200px);
-  font-weight:bold;
-  color:transparent;
-  pointer-events:none;
-}
-.falling-text {
-  font-family:'Work Sans', sans-serif;
-  position:absolute;
-  top:0;
-  font-size:3rem;
-  padding:20px;
-  background: rgba(26,26,31,0.85);
-  backdrop-filter: blur(8px);
-  border-radius:120px;
-  color:#f0f1f3;
-  border:1px solid rgba(240,241,243,0.5);
-  opacity:0;
-  cursor:pointer;
-  z-index:1;
-}
-.falling-text:hover {
-  transform: scale(1.15) rotate(2deg);
-  background: rgba(255,255,255,0.3);
-  color:#fff;
-  border-color: rgba(255,255,255,0.8);
-  backdrop-filter: blur(8px);
-}
-
-/* Card stack container */
-.card-stack-container {
-  width: 100%;
-  padding: 0 1rem;
-  margin: 0 auto;
-}
-
-/* Card stack */
-.card-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  width: min(90%, 450px); /* desktop: max 450px, scales down */
-  margin: 0 auto;
-}
-
-/* Individual card */
-.card {
-  display: flex;
-  flex-direction: column;
-  background: rgba(26,26,31,0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  width: 100%;
-  text-align: center;
-}
-
-/* Card image */
-.card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-/* Card content */
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
-  color: #f0f1f3;
-}
-
-.card-content h3 {
-  font-size: clamp(1.3rem, 4vw, 1.6rem);
-}
-
-.card-content p {
-  font-size: clamp(0.95rem, 3vw, 1rem);
-  opacity: 0.9;
-}
-
-.card-content button {
-  padding: 12px 24px;
-  background: #6816ff;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  align-self: center;
-  font-family:'Work Sans', sans-serif;
-  font-size: clamp(1rem, 3.5vw, 1.1rem);
-}
-
-.card-content button:hover {
-  background: #8c3cff;
-}
-
-/* MOBILE OVERRIDES */
-@media (max-width: 768px) {
-  .card-stack {
-    width: 100vw;
-    max-width: 100% !important;
-    gap: 30px;
-  }
-
-  .card {
-    width: 100vw;
-    padding: 18px;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-
-  .card-content h3 {
-    font-size: 1.4rem;
-  }
-
-  .card-content p {
-    font-size: 1rem;
-  }
-
-  .card-content button {
-    width: 100%;
-    padding: 16px;
-    font-size: 1rem;
-  }
-}
-
-/* SMALLER PHONES */
-@media (max-width: 480px) {
-  .card-stack {
-    width: 100% !important;
-    gap: 25px;
-  }
-
-  .card {
-    width: 100vw;
-    padding: 15px;
-    border-radius: 16px;
-  }
-
-  .card-content h3 {
-    font-size: 1.3rem;
-  }
-
-  .card-content p {
-    font-size: 0.95rem;
-  }
-
-  .card-content button {
-    width: 100%;
-    padding: 14px;
-    font-size: 0.95rem;
-  }
-}
-
-</style>
-
-
-
-
-<!-- Card stack overlay (updated layout) -->
-<div class="card-stack-container">
-  <div class="card-stack">
-    <div class="card">
-      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2Z6OWNpbnFkdzRqMm1wODVqZ3MxdHpsdm1jaG11cXExZGRhbnY1MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgfRdpsQy2pTWNy/giphy.gif" alt="Image 1">
-      <div class="card-content">
-        <h3>Hi. You're here!</h3>
-        <p>I’m all about creating designs and content that connect. Scroll down to see what I bring to the table:</p>
-        <button>↯</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/RuNPFAQ.jpeg" alt="Image 1">
-      <div class="card-content">
-        <h3>Branding Design</h3>
-        <p>Branding that stays simple and polished, with just the right amount of cuteness to make your identity feel inviting and memorable.</p>
-        <button>Contact Me</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/3Ci5puG.gif" alt="Image 2">
-      <div class="card-content">
-        <h3>Animations</h3>
-        <p>From clean 2D motion graphics to simple 3D animations, I create visuals that are smooth, clear, and engaging.</p>
-        <button>Learn More</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/zZQUEo4.jpeg" alt="Image 3">
-      <div class="card-content">
-        <h3>Graphic Design</h3>
-        <p>No matter the medium, digital or traditional, I’m here to support your vision!</p>
-        <button>Learn More</button>
-      </div>
-    </div>
-  </div>
-</div>
-<br><BR>
-
-<!-- GSAP Animations -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Animate nav links
-  gsap.to(".nav-list li a", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease:"power2.out" });
-
-  // Animate falling texts
-  const words = ["Graphic","Photo Edit","3D Model","Motion Graphics","Landing Page","Email","Print","Social Media"];
-  const section = document.querySelector(".fixed-background");
-  const stacks = [];
-  const bgText = document.querySelector('.background-text');
-  const maxFall = bgText.offsetTop + bgText.offsetHeight + 20;
-
-  words.forEach(word=>{
-    const span = document.createElement('div');
-    span.classList.add('falling-text');
-    span.textContent = word;
-    section.appendChild(span);
-
-    let x = Math.random()*(section.offsetWidth-150);
-    span.style.left = x+"px";
-
-    const nearbyStack = stacks.filter(s=>Math.abs(s.x-x)<100);
-    let yTarget = maxFall;
-    if(nearbyStack.length) yTarget = Math.min(...nearbyStack.map(s=>s.y))-60;
-    stacks.push({x,y:yTarget});
-
-    const tl = gsap.timeline({delay:Math.random()});
-    tl.to(span,{y:yTarget,opacity:1,rotation:()=>gsap.utils.random(-15,15),duration:0.8,ease:"power3.in"});
-    tl.to(span,{y:"-=10",duration:0.3,ease:"power1.out"});
-    tl.to(span,{y:"+=10",duration:0.5,ease:"bounce.out"});
-  });
-
-  // Animate cards on scroll
-  gsap.utils.toArray(".card").forEach((card,i)=>{
-    gsap.fromTo(card,{opacity:0,y:50},{opacity:1,y:0,scrollTrigger:{trigger:card,start:"top 80%",end:"top 60%",toggleActions:"play none none reverse"},duration:1,delay:i*0.2,ease:"power3.out"});
-  });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Animate buttons with a gentle floating effect
-  gsap.utils.toArray(".card-content button").forEach(button => {
-    gsap.to(button, {
-      y: 5,              // move 5px down
-      duration: 1.5,     // duration of the movement
-      repeat: -1,        // infinite loop
-      yoyo: true,        // move back up
-      ease: "power1.inOut",
-      delay: Math.random() // random start to make it less uniform
-    });
-  });
-});
-</script>
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.11.5/build/spline-viewer.js"></script>
-
-<footer class="footer" id="contact">
-      <div class="footer-top">
-        <div class="contact-info">
-          <p>Email: paulejonan@gmail.com</p>
-          <p>Mobile: +63 939 422 1718</p>
-        </div>
-        <div class="social-links">
-          <a href="https://ph.pinterest.com/jonanpaule/" target="_blank">Pinterest</a>
-          <a href="https://www.instagram.com/pauartdump/" target="_blank">Instagram</a>
-          <a href="https://t.me/jonannn" target="_blank">Telegram</a>
-        </div>
-      </div>
-      <div class="footer-center">
-        <h2>Work with me</h2>
-        <div class="button-container">
-          <a href="https://digitalnoodlestudio.etsy.com" class="button-pill">Etsy</a>
-          <a href="https://www.freepik.com/author/noodle" class="button-pill">Freepik</a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=paulejonan@gmail.com&su=SUBJECT&body=BODY&bcc=paulejonan@gmail.com"
-            class="button-pill">Email</a>
-        </div>
-      </div><br><br><br>
-      <div class="footer-bottom">
-        <div class="logo">
-          <a href="jonanpaule.work"><img src="https://i.imgur.com/zH8QVG4.png" alt="Logo"></a>
-        </div>
-        <div class="copyright">
-          <p>© 2025 All rights reserved. Designed and developed by Jonan.</p>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      const menu = document.getElementById('mobile-menu');
-      const navLinks = document.querySelector('.nav-links');
-
-      menu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menu.classList.toggle('open');
-      });
-    </script>
-
-    <script>
-      var video = document.getElementById("myVideo");
-      var btn = document.getElementById("myBtn");
-
-      function myFunction() {
-        if (video.paused) {
-          video.play();
-          btn.innerHTML = "Pause";
-        } else {
-          video.pause();
-          btn.innerHTML = "Play";
-        }
       }
-    </script>
-  </main>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const contactLink = document.querySelector('a[href="#contact"]');
+    }
+  </style>
+</head>
+<body>
 
-  contactLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    document.querySelector("#contact").scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  });
-});
-</script>
+  <div class="scroll-container" id="scrollContainer">
+    <section class="one active">Section One</section>
+    <section class="two">Section Two</section>
+    <section class="three">Section Three</section>
+    <section class="four">Section Four</section>
+  </div>
+
+  <script>
+    const container = document.getElementById('scrollContainer');
+    const sections = document.querySelectorAll('section');
+    let currentIndex = 0;
+
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+
+      if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+        currentIndex++;
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        currentIndex--;
+      }
+
+      container.style.transform = `translateX(-${currentIndex * 100}vw)`;
+
+      sections.forEach((section, index) => {
+        section.classList.toggle('active', index === currentIndex);
+      });
+    }, { passive: false });
+  </script>
+
+</body>
+</html>
